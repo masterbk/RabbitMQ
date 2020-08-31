@@ -28,10 +28,10 @@ namespace Receiver
                 x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
                     cfg.UseHealthCheck(provider);
-                    cfg.Host(Configuration.GetSection("RabbitMQ:Host").Get<string>(), h =>
+                    cfg.Host(Configuration.GetSection("RabbitMQ:Host:Url").Get<string>(), h =>
                     {
-                        h.Username("guest");
-                        h.Password("guest");
+                        h.Username(Configuration.GetSection("RabbitMQ:Host:UserName").Get<string>());
+                        h.Password(Configuration.GetSection("RabbitMQ:Host:Password").Get<string>());
                     });
 
                     cfg.ReceiveEndpoint(Configuration.GetSection("RabbitMQ:Queue").Get<string>(), e =>
