@@ -17,6 +17,3 @@
 					"delay": 1000, //Time delay between each messages in second
 					"totalPerConcurrent": 10 //Total message send from each thread
 				}
-
-
-Note: Message save to file CSV: message.csv in folder Receiver project 
